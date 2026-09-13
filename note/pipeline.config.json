@@ -1,0 +1,23 @@
+{
+  "_comment": "既存note投稿システムとの接続設定。runner.command が null の間、weekly-run.sh は投稿段階へ進まず停止する。既存システムの実物を確認してから埋めること。推測で埋めない。",
+  "runner": {
+    "command": null,
+    "dryRunFlag": null,
+    "articlesDir": "articles"
+  },
+  "schema": {
+    "_comment": "既存 Article JSON の実際のキー名。未確認のため null。ここを埋めるまで変換処理は実装しない。",
+    "titleKey": null,
+    "bodyKey": null,
+    "bodyFormat": null,
+    "tagsKey": null,
+    "tagsIncludeHash": null,
+    "paidKey": null,
+    "priceKey": null,
+    "paywallMarker": null,
+    "headerImageKey": null,
+    "publishAtKey": null,
+    "publishAtFormat": null,
+    "dedupeKey": null
+  }
+}

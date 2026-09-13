@@ -1,0 +1,12 @@
+[Unit]
+Description=weekly-note を毎週日曜 06:00 (JST) に実行
+
+[Timer]
+# 週の開始(月曜)の前日に生成し、予約投稿の設定余地を残す
+OnCalendar=Sun *-*-* 06:00:00
+Persistent=true
+AccuracySec=1min
+Unit=weekly-note.service
+
+[Install]
+WantedBy=timers.target

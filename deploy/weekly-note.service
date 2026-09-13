@@ -1,0 +1,26 @@
+[Unit]
+Description=weekly-note 週次記事生成
+Documentation=file:///opt/note/note/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=note
+WorkingDirectory=/opt/note
+Environment=TZ=Asia/Tokyo
+# 既定は dry-run。本番投稿へ切り替えるのは runner 接続を確認してから。
+ExecStart=/opt/note/scripts/weekly-run.sh
+TimeoutStartSec=30min
+
+# 失敗しても再試行しない。二重生成・二重投稿を防ぐため。
+Restart=no
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/opt/note
+
+[Install]
+WantedBy=multi-user.target
